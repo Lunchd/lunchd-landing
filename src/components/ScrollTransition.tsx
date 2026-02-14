@@ -57,7 +57,7 @@ export default function ScrollTransition() {
                 </motion.h2>
                 <motion.h2
                   style={{ opacity: secondOpacity }}
-                  className="font-serif text-espresso text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-center lg:text-left max-w-2xl absolute inset-0"
+                  className="font-serif text-espresso text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-center lg:text-left max-w-2xl absolute inset-0"
                 >
                   <span className="text-brand">One of them</span> is all it takes to meet <em className="italic">someone new.</em>
                 </motion.h2>
