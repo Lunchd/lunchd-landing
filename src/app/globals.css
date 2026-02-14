@@ -3,14 +3,14 @@
 @theme inline {
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
-  --color-orange: #E84908;
-  --color-orange-hover: #d14007;
+  --color-brand: #E84908;
+  --color-brand-hover: #d14007;
   --color-espresso: #422D2B;
   --color-cream: #FFFCF9;
   --color-warm-white: #FFF9F2;
   --color-card-bg: #EAE8E2;
   --color-card-border: #E0DED7;
-  --color-grey: #5A5A5A;
+  --color-muted: #5A5A5A;
 }
 
 * {
@@ -34,16 +34,6 @@ body {
   font-family: var(--font-sans), "Albert Sans", sans-serif;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
-}
-
-/* Hide scrollbar for loader */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

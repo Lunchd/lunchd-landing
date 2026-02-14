@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden">
+    <section className="relative h-screen flex flex-col justify-between overflow-hidden">
       <Image
         src="/hero-bg.jpg"
         alt="Friends enjoying lunch together"
@@ -17,7 +17,7 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-black/20" />
 
-      <div className="relative z-10 flex flex-col justify-between min-h-screen px-6 md:px-12 pt-8 md:pt-10 pb-16 md:pb-24">
+      <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-10 md:px-16 lg:px-20 pt-8 md:pt-10 pb-16 md:pb-24">
         {/* Nav */}
         <motion.nav
           className="flex items-center justify-between"
@@ -93,7 +93,7 @@ export default function Hero() {
 
           <motion.a
             href="#cta"
-            className="inline-flex items-center gap-3 bg-orange hover:bg-orange-hover text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3.5 md:py-4 rounded-full w-fit transition-colors"
+            className="inline-flex items-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3.5 md:py-4 rounded-full w-fit transition-colors"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}

@@ -54,7 +54,7 @@ function FAQItem({
 
   return (
     <motion.div
-      className="bg-white rounded-xl overflow-hidden"
+      className="bg-white rounded-2xl overflow-hidden"
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -62,15 +62,15 @@ function FAQItem({
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer"
+        className="w-full flex items-center justify-between px-6 py-5 md:px-8 md:py-6 text-center cursor-pointer"
       >
-        <span className="font-medium text-base md:text-lg text-black pr-4">
+        <span className="font-medium text-base md:text-lg text-espresso flex-1 text-center">
           {question}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="text-espresso text-xl flex-shrink-0"
+          className="text-espresso text-2xl flex-shrink-0 ml-4 font-light"
         >
           +
         </motion.span>
@@ -84,7 +84,7 @@ function FAQItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="px-5 md:px-6 pb-5 md:pb-6 text-grey leading-relaxed text-sm md:text-base">
+            <p className="px-6 md:px-8 pb-6 md:pb-8 text-muted leading-relaxed text-sm md:text-base text-center max-w-xl mx-auto">
               {answer}
             </p>
           </motion.div>
@@ -96,8 +96,8 @@ function FAQItem({
 
 export default function FAQ() {
   return (
-    <section className="bg-cream px-6 md:px-12 py-20 md:py-28">
-      <div className="max-w-2xl mx-auto flex flex-col gap-10 items-center">
+    <section className="bg-cream min-h-screen flex items-center px-6 sm:px-10 md:px-16 lg:px-20 py-20 md:py-28">
+      <div className="max-w-3xl mx-auto w-full flex flex-col gap-10 items-center">
         <motion.h2
           className="font-serif text-espresso text-4xl md:text-5xl lg:text-[56px] text-center"
           initial={{ opacity: 0, y: 20 }}

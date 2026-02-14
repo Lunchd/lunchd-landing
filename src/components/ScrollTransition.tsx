@@ -24,13 +24,13 @@ export default function ScrollTransition() {
           className="absolute inset-0 flex items-center bg-white"
           style={{ opacity: firstOpacity }}
         >
-          <div className="w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 md:px-12 py-16">
+          <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 sm:px-10 md:px-16 lg:px-20 py-16 lg:py-0">
             <motion.div
-              className="flex flex-col gap-8 lg:flex-1"
+              className="flex flex-col gap-8 lg:flex-1 lg:py-24"
               style={{ y: firstY }}
             >
               <h2 className="font-serif text-espresso text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none max-w-2xl">
-                <span className="text-orange">250 lunches a year</span> and you
+                <span className="text-brand">250 lunches a year</span> and you
                 eat most of them <em className="italic">alone.</em>
               </h2>
               <a
@@ -50,8 +50,8 @@ export default function ScrollTransition() {
                 </svg>
               </a>
             </motion.div>
-            <div className="lg:flex-1 w-full max-w-md lg:max-w-none">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
+            <div className="lg:flex-1 w-full max-w-md lg:max-w-none h-64 lg:h-full">
+              <div className="relative h-full rounded-3xl overflow-hidden">
                 <Image
                   src="/section-friends-dining.jpg"
                   alt="Friends enjoying lunch"
@@ -69,13 +69,13 @@ export default function ScrollTransition() {
           className="absolute inset-0 flex items-center bg-white"
           style={{ opacity: secondOpacity }}
         >
-          <div className="w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 md:px-12 py-16">
+          <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 sm:px-10 md:px-16 lg:px-20 py-16 lg:py-0">
             <motion.div
-              className="flex flex-col gap-8 lg:flex-1"
+              className="flex flex-col gap-8 lg:flex-1 lg:py-24"
               style={{ y: secondY }}
             >
               <h2 className="font-serif text-espresso text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none max-w-2xl">
-                <span className="text-orange">One of them</span> is all it
+                <span className="text-brand">One of them</span> is all it
                 takes to meet <em className="italic">someone new.</em>
               </h2>
               <a
@@ -95,8 +95,8 @@ export default function ScrollTransition() {
                 </svg>
               </a>
             </motion.div>
-            <div className="lg:flex-1 w-full max-w-md lg:max-w-none">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
+            <div className="lg:flex-1 w-full max-w-md lg:max-w-none h-64 lg:h-full">
+              <div className="relative h-full rounded-3xl overflow-hidden">
                 <Image
                   src="/section-friends-table.jpg"
                   alt="Friends meeting someone new"

@@ -18,7 +18,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
     <AnimatePresence onExitComplete={onComplete}>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-orange"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-brand"
           exit={{ y: "-100%" }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >

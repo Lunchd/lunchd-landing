@@ -17,9 +17,9 @@ export default function FinalCTA() {
   return (
     <section
       id="cta"
-      className="bg-white px-6 md:px-12 py-20 md:py-28"
+      className="bg-white min-h-screen flex items-center px-6 sm:px-10 md:px-16 lg:px-20 py-20 md:py-28"
     >
-      <div className="max-w-2xl mx-auto flex flex-col items-center text-center gap-8">
+      <div className="max-w-2xl mx-auto w-full flex flex-col items-center text-center gap-8">
         <motion.h2
           className="font-serif text-espresso text-4xl md:text-5xl lg:text-[56px] leading-tight"
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export default function FinalCTA() {
         >
           {submitted ? (
             <motion.p
-              className="text-orange font-medium text-lg w-full py-3"
+              className="text-brand font-medium text-lg w-full py-3"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
             >
@@ -54,11 +54,11 @@ export default function FinalCTA() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-5 py-3.5 rounded-full border border-gray-200 bg-white text-base focus:outline-none focus:ring-2 focus:ring-orange/30 focus:border-orange transition-all"
+                className="flex-1 px-6 py-4 rounded-full border border-gray-200 bg-white text-base focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand transition-all"
               />
               <motion.button
                 type="submit"
-                className="bg-orange hover:bg-orange-hover text-white font-semibold text-base px-8 py-3.5 rounded-full transition-colors cursor-pointer"
+                className="bg-brand hover:bg-brand-hover text-white font-semibold text-base px-8 py-4 rounded-full transition-colors cursor-pointer whitespace-nowrap"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -69,7 +69,7 @@ export default function FinalCTA() {
         </motion.form>
 
         <motion.p
-          className="text-grey text-sm"
+          className="text-muted text-sm"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

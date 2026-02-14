@@ -6,7 +6,7 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-espresso text-white px-6 md:px-12 py-8 md:py-10"
+      className="bg-espresso text-white px-6 sm:px-10 md:px-16 lg:px-20 py-10 md:py-14"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
