@@ -73,7 +73,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              className="font-serif text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] max-w-4xl"
+              className="font-serif text-white text-6xl sm:text-7xl md:text-8xl lg:text-[100px] leading-[0.95] max-w-4xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
@@ -82,7 +82,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-white font-medium text-base md:text-xl lg:text-2xl max-w-xl leading-relaxed"
+              className="text-white font-medium text-lg md:text-xl lg:text-2xl max-w-xl leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
