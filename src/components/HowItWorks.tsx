@@ -67,14 +67,8 @@ function FindTableCard() {
 }
 
 function JoinTableCard() {
-  const [isInView, setIsInView] = useState(false);
-
   return (
-    <motion.div
-      className="w-full max-w-[280px] bg-white rounded-2xl p-5 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] transform rotate-[1deg] transition-transform duration-500 group-hover:rotate-0 flex flex-col gap-4"
-      onViewportEnter={() => setIsInView(true)}
-      viewport={{ margin: "-30%" }}
-    >
+    <div className="w-full max-w-[280px] bg-white rounded-2xl p-5 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] transform rotate-[1deg] transition-transform duration-500 group-hover:rotate-0 flex flex-col gap-4">
       <div className="flex items-center gap-3 border-b border-gray-100 pb-3">
         <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -102,11 +96,11 @@ function JoinTableCard() {
         </div>
       </div>
       <motion.button
-        className="w-full py-2.5 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-colors duration-300"
-        animate={{
-          backgroundColor: isInView ? "#E84908" : "#2D2D2D"
-        }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        className="w-full py-2.5 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 group-hover:bg-brand"
+        initial={{ backgroundColor: "#2D2D2D" }}
+        whileInView={{ backgroundColor: "#E84908" }}
+        viewport={{ once: true, margin: "-20%" }}
+        transition={{ duration: 0.6, delay: 0.4 }}
       >
         <span>Join Table</span>
         <svg
@@ -120,7 +114,7 @@ function JoinTableCard() {
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </motion.button>
-    </motion.div>
+    </div>
   );
 }
 
