@@ -27,25 +27,69 @@ export default function Hero() {
         >
           <Logo className="w-24 md:w-32" />
           <div className="hidden md:flex items-center gap-8 text-white font-semibold text-lg">
-            <a href="#about" className="hover:opacity-80 transition-opacity">
-              About
+            <a href="#about" className="relative group flex items-center gap-2 transition-all duration-300">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              <span>About</span>
             </a>
             <a
               href="#how-it-works"
-              className="hover:opacity-80 transition-opacity"
+              className="relative group flex items-center gap-2 transition-all duration-300"
             >
-              How it Works
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              <span>How it Works</span>
             </a>
-            <a href="#faq" className="hover:opacity-80 transition-opacity">
-              FAQ
+            <a href="#faq" className="relative group flex items-center gap-2 transition-all duration-300">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              <span>FAQ</span>
             </a>
             <a
               href="https://www.instagram.com/lunchdapp/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
+              className="relative group flex items-center gap-2 transition-all duration-300"
             >
-              Instagram
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              <span>Instagram</span>
             </a>
           </div>
         </motion.nav>
