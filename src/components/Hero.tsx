@@ -120,7 +120,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              className="font-serif text-white text-6xl sm:text-7xl md:text-8xl lg:text-[100px] leading-[0.95] max-w-4xl"
+              className="font-serif text-white text-7xl sm:text-8xl md:text-8xl lg:text-[100px] leading-[0.95] max-w-4xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
