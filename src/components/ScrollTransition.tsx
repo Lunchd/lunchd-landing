@@ -35,7 +35,7 @@ export default function ScrollTransition() {
               </h2>
               <a
                 href="#cta"
-                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-4 rounded-full w-fit transition-colors"
+                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-4 rounded-full w-fit transition-all duration-300 shadow-sm hover:shadow-md"
               >
                 Get early access
                 <svg
@@ -80,7 +80,7 @@ export default function ScrollTransition() {
               </h2>
               <a
                 href="#cta"
-                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-4 rounded-full w-fit transition-colors"
+                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-4 rounded-full w-fit transition-all duration-300 shadow-sm hover:shadow-md"
               >
                 Get early access
                 <svg

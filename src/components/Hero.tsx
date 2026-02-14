@@ -37,7 +37,7 @@ export default function Hero() {
               How it Works
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/lunchdapp/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
@@ -73,7 +73,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              className="font-serif text-white text-6xl sm:text-7xl md:text-8xl lg:text-[132px] leading-[0.9] max-w-4xl"
+              className="font-serif text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] max-w-4xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
@@ -82,7 +82,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-white font-medium text-lg md:text-2xl lg:text-3xl max-w-xl leading-snug"
+              className="text-white font-medium text-base md:text-xl lg:text-2xl max-w-xl leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
@@ -93,7 +93,7 @@ export default function Hero() {
 
           <motion.a
             href="#cta"
-            className="inline-flex items-center justify-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3.5 md:py-4 rounded-full w-fit transition-colors"
+            className="inline-flex items-center justify-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3.5 md:py-4 rounded-full w-fit transition-all duration-300 shadow-sm hover:shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
