@@ -17,7 +17,7 @@ export default function FinalCTA() {
   return (
     <section
       id="cta"
-      className="bg-white min-h-screen flex items-center px-6 sm:px-10 md:px-16 lg:px-20 py-20 md:py-28"
+      className="bg-white min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28"
     >
       <div className="max-w-2xl mx-auto w-full flex flex-col items-center text-center gap-8">
         <motion.h2

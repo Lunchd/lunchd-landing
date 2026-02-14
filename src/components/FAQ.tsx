@@ -96,7 +96,7 @@ function FAQItem({
 
 export default function FAQ() {
   return (
-    <section className="bg-cream min-h-screen flex items-center px-6 sm:px-10 md:px-16 lg:px-20 py-20 md:py-28">
+    <section className="bg-cream min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28">
       <div className="max-w-3xl mx-auto w-full flex flex-col gap-10 items-center">
         <motion.h2
           className="font-serif text-espresso text-4xl md:text-5xl lg:text-[56px] text-center"

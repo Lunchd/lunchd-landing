@@ -6,7 +6,7 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-espresso text-white px-6 sm:px-10 md:px-16 lg:px-20 py-10 md:py-14"
+      className="bg-espresso text-white px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-10 md:py-14"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -48,7 +48,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/50">
           <span>Lunchd &copy; 2026</span>
-          <span>Made in London. Mostly works.</span>
+          <span>Made in London.</span>
         </div>
       </div>
     </motion.footer>

@@ -7,7 +7,7 @@ export default function Logo({
 }) {
   return (
     <Image
-      src="/Union.png"
+      src="/Union.svg"
       alt="Lunchd Logo"
       width={130}
       height={40}

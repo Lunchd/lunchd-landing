@@ -24,7 +24,7 @@ export default function ScrollTransition() {
           className="absolute inset-0 flex items-center bg-white"
           style={{ opacity: firstOpacity }}
         >
-          <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 sm:px-10 md:px-16 lg:px-20 py-16 lg:py-0">
+          <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-0">
             <motion.div
               className="flex flex-col gap-8 lg:flex-1 lg:py-24"
               style={{ y: firstY }}
@@ -35,7 +35,7 @@ export default function ScrollTransition() {
               </h2>
               <a
                 href="#cta"
-                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-3.5 rounded-full w-fit transition-colors"
+                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-4 rounded-full w-fit transition-colors"
               >
                 Get early access
                 <svg
@@ -50,7 +50,7 @@ export default function ScrollTransition() {
                 </svg>
               </a>
             </motion.div>
-            <div className="lg:flex-1 w-full max-w-md lg:max-w-none h-64 lg:h-full">
+            <div className="lg:flex-1 w-full max-w-md lg:max-w-none h-64 lg:h-[500px]">
               <div className="relative h-full rounded-3xl overflow-hidden">
                 <Image
                   src="/section-friends-dining.jpg"
@@ -69,7 +69,7 @@ export default function ScrollTransition() {
           className="absolute inset-0 flex items-center bg-white"
           style={{ opacity: secondOpacity }}
         >
-          <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 sm:px-10 md:px-16 lg:px-20 py-16 lg:py-0">
+          <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-0">
             <motion.div
               className="flex flex-col gap-8 lg:flex-1 lg:py-24"
               style={{ y: secondY }}
@@ -80,7 +80,7 @@ export default function ScrollTransition() {
               </h2>
               <a
                 href="#cta"
-                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-3.5 rounded-full w-fit transition-colors"
+                className="inline-flex items-center gap-3 bg-espresso hover:bg-espresso/90 text-white font-semibold text-base px-8 py-4 rounded-full w-fit transition-colors"
               >
                 Get early access
                 <svg
@@ -95,7 +95,7 @@ export default function ScrollTransition() {
                 </svg>
               </a>
             </motion.div>
-            <div className="lg:flex-1 w-full max-w-md lg:max-w-none h-64 lg:h-full">
+            <div className="lg:flex-1 w-full max-w-md lg:max-w-none h-64 lg:h-[500px]">
               <div className="relative h-full rounded-3xl overflow-hidden">
                 <Image
                   src="/section-friends-table.jpg"

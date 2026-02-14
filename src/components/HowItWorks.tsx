@@ -168,7 +168,7 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-cream min-h-screen flex items-center px-6 sm:px-10 md:px-16 lg:px-20 py-20 md:py-28"
+      className="bg-cream min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28"
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col gap-12 md:gap-16">
         {/* Header */}

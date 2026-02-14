@@ -13,27 +13,30 @@
   --color-muted: #5A5A5A;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans), "Albert Sans", sans-serif;
+    color: #2D2D2D;
+    background: #ffffff;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-body {
-  font-family: var(--font-sans), "Albert Sans", sans-serif;
-  color: #2D2D2D;
-  background: #ffffff;
-  overflow-x: hidden;
-}
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif), "Instrument Serif", serif;
+  }
 
-.font-serif {
-  font-family: var(--font-serif), "Instrument Serif", serif;
-}
-
-.font-sans {
-  font-family: var(--font-sans), "Albert Sans", sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
+  .font-sans {
+    font-family: var(--font-sans), "Albert Sans", sans-serif;
+  }
 }
