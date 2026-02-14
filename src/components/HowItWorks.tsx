@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const steps = [
@@ -67,8 +67,14 @@ function FindTableCard() {
 }
 
 function JoinTableCard() {
+  const [isInView, setIsInView] = useState(false);
+
   return (
-    <div className="w-full max-w-[280px] bg-white rounded-2xl p-5 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] transform rotate-[1deg] transition-transform duration-500 group-hover:rotate-0 flex flex-col gap-4">
+    <motion.div
+      className="w-full max-w-[280px] bg-white rounded-2xl p-5 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] transform rotate-[1deg] transition-transform duration-500 group-hover:rotate-0 flex flex-col gap-4"
+      onViewportEnter={() => setIsInView(true)}
+      viewport={{ margin: "-30%" }}
+    >
       <div className="flex items-center gap-3 border-b border-gray-100 pb-3">
         <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -95,7 +101,13 @@ function JoinTableCard() {
           +2
         </div>
       </div>
-      <button className="w-full py-2.5 bg-[#2D2D2D] text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 group-hover:bg-brand transition-colors duration-300">
+      <motion.button
+        className="w-full py-2.5 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-colors duration-300"
+        animate={{
+          backgroundColor: isInView ? "#E84908" : "#2D2D2D"
+        }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
         <span>Join Table</span>
         <svg
           width="14"
@@ -107,8 +119,8 @@ function JoinTableCard() {
         >
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 }
 
@@ -166,15 +178,6 @@ function ShowUpCard() {
 }
 
 export default function HowItWorks() {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
-    checkDesktop();
-    window.addEventListener("resize", checkDesktop);
-    return () => window.removeEventListener("resize", checkDesktop);
-  }, []);
-
   return (
     <section
       id="how-it-works"
@@ -202,30 +205,47 @@ export default function HowItWorks() {
               className="flex flex-col gap-6 group"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20%" }}
-              transition={{
-                duration: 0.6,
-                delay: isDesktop ? i * 0.15 : 0
-              }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
             >
               {/* Card illustration */}
-              <div className="relative w-full aspect-[4/3] bg-card-bg rounded-[2rem] border border-card-border overflow-hidden flex items-center justify-center p-6 transition-all duration-300 group-hover:shadow-lg group-hover:border-[#d6d3cb]">
+              <motion.div
+                className="relative w-full aspect-[4/3] bg-card-bg rounded-[2rem] border border-card-border overflow-hidden flex items-center justify-center p-6 transition-all duration-300 group-hover:shadow-lg group-hover:border-[#d6d3cb]"
+                viewport={{ margin: "-30%" }}
+                onViewportEnter={(entry) => {
+                  if (i === 2) {
+                    entry.target.classList.add("in-view");
+                  }
+                }}
+              >
                 {step.card}
                 {i === 2 && (
                   <>
-                    <div className="absolute top-10 right-10 text-brand opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                    <motion.div
+                      className="absolute top-10 right-10 text-brand"
+                      initial={{ opacity: 0, y: 4 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ margin: "-30%", once: true }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                    >
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" />
                       </svg>
-                    </div>
-                    <div className="absolute bottom-10 left-10 text-yellow-400 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-200">
+                    </motion.div>
+                    <motion.div
+                      className="absolute bottom-10 left-10 text-yellow-400"
+                      initial={{ opacity: 0, y: -4 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ margin: "-30%", once: true }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                    >
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" />
                       </svg>
-                    </div>
+                    </motion.div>
                   </>
                 )}
-              </div>
+              </motion.div>
 
               {/* Step info */}
               <div className="space-y-2 px-2">
