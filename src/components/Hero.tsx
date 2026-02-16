@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex flex-col justify-between overflow-hidden">
       <Image
-        src="/hero-bg.jpg"
+        src="/lunchd-background.avif"
         alt="Friends enjoying lunch together"
         fill
         className="object-cover"
@@ -26,24 +26,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Logo className="w-24 md:w-32" />
-          <div className="hidden md:flex items-center gap-8 text-white font-semibold text-lg">
-            <a href="#about" className="relative group flex items-center gap-2 transition-all duration-300">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-              <span>About</span>
-            </a>
+          <div className="hidden md:flex items-center gap-8 text-white font-semibold text-[19px]">
             <a
-              href="#how-it-works"
-              className="relative group flex items-center gap-2 transition-all duration-300"
+              href="#about"
+              className="relative group flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5"
             >
               <svg
                 width="16"
@@ -54,11 +40,14 @@ export default function Hero() {
                 strokeWidth="2.5"
                 className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
               >
-                <path d="M5 12h14M12 5l7 7-7 7" />
+                <path d="M9 5l7 7-7 7" />
               </svg>
-              <span>How it Works</span>
+              <span>About</span>
             </a>
-            <a href="#faq" className="relative group flex items-center gap-2 transition-all duration-300">
+            <a
+              href="#how-it-works"
+              className="relative group flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5"
+            >
               <svg
                 width="16"
                 height="16"
@@ -68,7 +57,24 @@ export default function Hero() {
                 strokeWidth="2.5"
                 className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
               >
-                <path d="M5 12h14M12 5l7 7-7 7" />
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+              <span>How it Works</span>
+            </a>
+            <a
+              href="#faq"
+              className="relative group flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+              >
+                <path d="M9 5l7 7-7 7" />
               </svg>
               <span>FAQ</span>
             </a>
@@ -76,7 +82,7 @@ export default function Hero() {
               href="https://www.instagram.com/lunchdapp/"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group flex items-center gap-2 transition-all duration-300"
+              className="relative group flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5"
             >
               <svg
                 width="16"
@@ -87,7 +93,7 @@ export default function Hero() {
                 strokeWidth="2.5"
                 className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
               >
-                <path d="M5 12h14M12 5l7 7-7 7" />
+                <path d="M9 5l7 7-7 7" />
               </svg>
               <span>Instagram</span>
             </a>
@@ -131,10 +137,7 @@ export default function Hero() {
 
           <motion.a
             href="#cta"
-            className="inline-flex items-center justify-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold text-base md:text-lg px-8 md:px-10 py-2.5 md:py-3 rounded-full w-fit transition-all duration-300 shadow-sm hover:shadow-md group"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
+            className="inline-flex items-center justify-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold text-base md:text-lg px-7 md:px-9 py-2 md:py-2.5 rounded-full w-fit transition-all duration-300 shadow-sm hover:shadow-md group"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >

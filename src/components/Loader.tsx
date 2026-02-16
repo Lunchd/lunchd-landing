@@ -1,36 +1,67 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
+
+const MIN_LOADER_MS = 600;
 
 export default function Loader({ onComplete }: { onComplete: () => void }) {
   const [isVisible, setIsVisible] = useState(true);
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const start = performance.now();
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+    const completeLoading = () => {
+      if (hasCompletedRef.current) {
+        return;
+      }
+      hasCompletedRef.current = true;
       setIsVisible(false);
-    }, 2200);
-    return () => clearTimeout(timer);
-  }, []);
+      onComplete();
+    };
+
+    const completeWhenReady = () => {
+      const elapsed = performance.now() - start;
+      const remaining = MIN_LOADER_MS - elapsed;
+
+      if (remaining <= 0) {
+        completeLoading();
+        return;
+      }
+
+      timeoutId = setTimeout(completeLoading, remaining);
+    };
+
+    let handleLoad: (() => void) | null = null;
+
+    if (document.readyState === "complete") {
+      completeWhenReady();
+    } else {
+      handleLoad = () => completeWhenReady();
+      window.addEventListener("load", handleLoad, { once: true });
+    }
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      if (handleLoad) {
+        window.removeEventListener("load", handleLoad);
+      }
+    };
+  }, [onComplete]);
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
-    <AnimatePresence onExitComplete={onComplete}>
-      {isVisible && (
-        <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-brand"
-          exit={{ y: "-100%" }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          >
-            <Logo className="w-32 md:w-44" />
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand">
+      <div>
+        <Logo className="w-32 md:w-44" />
+      </div>
+    </div>
   );
 }

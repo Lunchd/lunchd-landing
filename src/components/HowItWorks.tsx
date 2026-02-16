@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
-import { useState, useEffect, useRef } from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
+import { useState } from "react";
 
 const steps = [
   {
@@ -43,7 +43,7 @@ function FindTableCard() {
             <p className="text-xs text-gray-500">Eataly, Liverpool St</p>
           </div>
         </div>
-        <div className="bg-brand text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+        <div className="bg-[#2D2D2D] text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide transition-colors duration-300 group-hover:bg-brand">
           12:30 PM
         </div>
       </div>
@@ -60,7 +60,7 @@ function FindTableCard() {
             />
           ))}
         </div>
-        <span className="text-xs font-medium text-brand">N/4</span>
+        <span className="text-xs font-medium text-brand">3/4</span>
       </div>
     </div>
   );
@@ -95,13 +95,7 @@ function JoinTableCard() {
           +2
         </div>
       </div>
-      <motion.button
-        className="w-full py-2.5 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 group-hover:bg-brand"
-        initial={{ backgroundColor: "#2D2D2D" }}
-        whileInView={{ backgroundColor: "#E84908" }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
+      <button className="w-full py-2.5 bg-[#2D2D2D] text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 group-hover:bg-brand transition-colors duration-300">
         <span>Join Table</span>
         <svg
           width="14"
@@ -113,12 +107,18 @@ function JoinTableCard() {
         >
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
-      </motion.button>
+      </button>
     </div>
   );
 }
 
-function ShowUpCard() {
+function ShowUpCard({
+  unreadCount = 0,
+  isHovered = false,
+}: {
+  unreadCount?: number;
+  isHovered?: boolean;
+}) {
   return (
     <div className="w-full max-w-[280px] bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] transform rotate-[-1deg] transition-transform duration-500 group-hover:rotate-0 flex flex-col">
       <div className="h-24 bg-gray-100 relative w-full overflow-hidden">
@@ -160,10 +160,19 @@ function ShowUpCard() {
             />
             <span className="text-xs text-gray-600">You&apos;re going</span>
           </div>
-          <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
+          <div className="relative w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
             </svg>
+            <span
+              className={`absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-brand text-white text-[8px] font-bold leading-none flex items-center justify-center shadow-sm pointer-events-none transition-all duration-250 ${
+                isHovered
+                  ? "opacity-100 scale-100 translate-y-0"
+                  : "opacity-0 scale-75 translate-y-0.5"
+              }`}
+            >
+              {unreadCount}
+            </span>
           </div>
         </div>
       </div>
@@ -172,6 +181,18 @@ function ShowUpCard() {
 }
 
 export default function HowItWorks() {
+  const [showUpUnreadCount, setShowUpUnreadCount] = useState(0);
+  const [isShowUpHovered, setIsShowUpHovered] = useState(false);
+
+  const handleShowUpMouseEnter = () => {
+    setIsShowUpHovered(true);
+    setShowUpUnreadCount((prev) => Math.min(53, prev + 1));
+  };
+
+  const handleShowUpMouseLeave = () => {
+    setIsShowUpHovered(false);
+  };
+
   return (
     <section
       id="how-it-works"
@@ -201,45 +222,33 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
+              onMouseEnter={i === 2 ? handleShowUpMouseEnter : undefined}
+              onMouseLeave={i === 2 ? handleShowUpMouseLeave : undefined}
             >
               {/* Card illustration */}
-              <motion.div
+              <div
                 className="relative w-full aspect-[4/3] bg-card-bg rounded-[2rem] border border-card-border overflow-hidden flex items-center justify-center p-6 transition-all duration-300 group-hover:shadow-lg group-hover:border-[#d6d3cb]"
-                viewport={{ margin: "-30%" }}
-                onViewportEnter={(entry) => {
-                  if (i === 2 && entry) {
-                    entry.target.classList.add("in-view");
-                  }
-                }}
               >
-                {step.card}
+                {i === 2 ? (
+                  <ShowUpCard unreadCount={showUpUnreadCount} isHovered={isShowUpHovered} />
+                ) : (
+                  step.card
+                )}
                 {i === 2 && (
                   <>
-                    <motion.div
-                      className="absolute top-10 right-10 text-brand"
-                      initial={{ opacity: 0, y: 4 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                    >
+                    <div className="absolute top-10 right-10 text-brand opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" />
                       </svg>
-                    </motion.div>
-                    <motion.div
-                      className="absolute bottom-10 left-10 text-yellow-400"
-                      initial={{ opacity: 0, y: -4 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
-                    >
+                    </div>
+                    <div className="absolute bottom-10 left-10 text-yellow-400 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-200">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" />
                       </svg>
-                    </motion.div>
+                    </div>
                   </>
                 )}
-              </motion.div>
+              </div>
 
               {/* Step info */}
               <div className="space-y-2 px-2">
