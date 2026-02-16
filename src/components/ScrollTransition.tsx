@@ -54,7 +54,7 @@ export default function ScrollTransition() {
                   style={{ opacity: firstOpacity }}
                   className="font-serif text-espresso text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-center lg:text-left max-w-2xl"
                 >
-                  <span className="text-brand">250 lunches a year</span> and you eat most of them <em className="italic">alone.</em>
+                  <span className="text-brand">365 lunches a year</span> and you eat most of them <em className="italic">alone.</em>
                 </motion.h2>
                 <motion.h2
                   style={{ opacity: secondOpacity }}
