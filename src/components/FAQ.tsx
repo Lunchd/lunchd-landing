@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const faqs = [
   {
@@ -56,7 +56,7 @@ function FAQItem({
 }) {
   return (
     <motion.div
-      className="bg-white rounded-2xl overflow-hidden border border-gray-200"
+      className="faq-item bg-white rounded-2xl overflow-hidden border border-gray-200"
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -64,9 +64,9 @@ function FAQItem({
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-6 py-5 md:px-8 md:py-6 text-center cursor-pointer"
+        className="w-full flex items-center justify-between px-4 py-2.5 md:px-5 md:py-3 text-center cursor-pointer"
       >
-        <span className="font-medium text-base md:text-lg text-espresso flex-1 text-center">
+        <span className="font-medium text-base md:text-[17px] text-espresso flex-1 text-center">
           {question}
         </span>
         <motion.span
@@ -99,11 +99,23 @@ function FAQItem({
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      const target = event.target as Element | null;
+      if (!target) return;
+      if (target.closest(".faq-item")) return;
+      setOpenIndex(null);
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, []);
+
   return (
     <section id="faq" className="bg-cream min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28">
       <div className="max-w-3xl mx-auto w-full flex flex-col gap-10 items-center">
         <motion.h2
-          className="font-serif text-espresso text-4xl md:text-5xl lg:text-[56px] text-center"
+          className="w-full max-w-[34rem] mx-auto font-serif text-espresso text-4xl md:text-5xl lg:text-[56px] text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -112,7 +124,7 @@ export default function FAQ() {
           Frequently Asked <em className="italic">Questions</em>
         </motion.h2>
 
-        <div className="w-full flex flex-col gap-3">
+        <div className="w-full max-w-[34rem] mx-auto flex flex-col gap-2">
           {faqs.map((faq, i) => (
             <FAQItem
               key={faq.question}

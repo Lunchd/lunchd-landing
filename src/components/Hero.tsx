@@ -8,12 +8,13 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex flex-col justify-between overflow-hidden">
       <Image
-        src="/lunchd-background.avif"
+        src="/lunchd-background-exact.png?rev=20260216-2315"
         alt="Friends enjoying lunch together"
         fill
         className="object-cover"
         priority
         quality={85}
+        unoptimized
       />
       <div className="absolute inset-0 bg-black/20" />
 
