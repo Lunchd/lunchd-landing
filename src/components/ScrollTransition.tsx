@@ -42,9 +42,13 @@ export default function ScrollTransition() {
     [0, 1, 1]
   );
 
+  // Parallax: images shift on y-axis at different rates for depth
+  const imageY1 = useTransform(smoothProgress, [0, 1], isMobile ? [0, -20] : [0, -40]);
+  const imageY2 = useTransform(smoothProgress, [0, 1], isMobile ? [20, 0] : [40, 0]);
+
   return (
     <div ref={ref} className="relative h-[200vh]" id="about">
-      <div className="sticky top-0 h-screen flex items-center justify-center bg-white overflow-hidden">
+      <div className="sticky top-0 h-svh flex items-center justify-center bg-white overflow-hidden">
         <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             {/* Text */}
@@ -89,26 +93,26 @@ export default function ScrollTransition() {
             <div className="w-full lg:flex-1 h-80 sm:h-96 lg:h-[500px] max-w-md lg:max-w-none">
               <div className="relative h-full rounded-3xl overflow-hidden">
                 <motion.div
-                  style={{ opacity: firstOpacity }}
+                  style={{ opacity: firstOpacity, y: imageY1 }}
                   className="absolute inset-0"
                 >
                   <Image
                     src="/section-friends-dining.jpg"
                     alt="Friends enjoying lunch"
                     fill
-                    className="object-cover"
+                    className="object-cover scale-110"
                     quality={80}
                   />
                 </motion.div>
                 <motion.div
-                  style={{ opacity: secondOpacity }}
+                  style={{ opacity: secondOpacity, y: imageY2 }}
                   className="absolute inset-0"
                 >
                   <Image
                     src="/section-friends-table.jpg"
                     alt="Friends meeting someone new"
                     fill
-                    className="object-cover"
+                    className="object-cover scale-110"
                     quality={80}
                   />
                 </motion.div>

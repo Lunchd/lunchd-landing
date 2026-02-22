@@ -40,10 +40,10 @@ function FindTableCard() {
           </div>
           <div>
             <h3 className="font-semibold text-sm">Lorenzo&apos;s table</h3>
-            <p className="text-xs text-gray-500">Eataly, Liverpool St</p>
+            <p className="text-xs text-espresso/50">Eataly, Liverpool St</p>
           </div>
         </div>
-        <div className="bg-[#2D2D2D] text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide transition-colors duration-300 group-hover:bg-brand">
+        <div className="bg-espresso text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide transition-colors duration-300 group-hover:bg-brand">
           12:30 PM
         </div>
       </div>
@@ -69,7 +69,7 @@ function FindTableCard() {
 function JoinTableCard() {
   return (
     <div className="w-full max-w-[280px] bg-white rounded-2xl p-5 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] transform rotate-[1deg] transition-transform duration-500 group-hover:rotate-0 flex flex-col gap-4">
-      <div className="flex items-center gap-3 border-b border-gray-100 pb-3">
+      <div className="flex items-center gap-3 border-b border-espresso/10 pb-3">
         <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z" />
@@ -77,7 +77,7 @@ function JoinTableCard() {
         </div>
         <div>
           <h3 className="font-bold text-sm">Friday Feast</h3>
-          <p className="text-xs text-gray-500 font-medium">4 spots left</p>
+          <p className="text-xs text-espresso/50 font-medium">4 spots left</p>
         </div>
       </div>
       <div className="flex -space-x-2">
@@ -91,11 +91,11 @@ function JoinTableCard() {
             className="rounded-full border-2 border-white object-cover"
           />
         ))}
-        <div className="w-9 h-9 rounded-full border-2 border-white bg-gray-50 flex items-center justify-center text-xs text-gray-400 font-medium">
+        <div className="w-9 h-9 rounded-full border-2 border-white bg-espresso/[0.03] flex items-center justify-center text-xs text-espresso/35 font-medium">
           +2
         </div>
       </div>
-      <button className="w-full py-2.5 bg-[#2D2D2D] text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 group-hover:bg-brand transition-colors duration-300">
+      <button className="w-full py-2.5 bg-espresso text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 group-hover:bg-brand transition-colors duration-300">
         <span>Join Table</span>
         <svg
           width="14"
@@ -121,7 +121,7 @@ function ShowUpCard({
 }) {
   return (
     <div className="w-full max-w-[280px] bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] transform rotate-[-1deg] transition-transform duration-500 group-hover:rotate-0 flex flex-col">
-      <div className="h-24 bg-gray-100 relative w-full overflow-hidden">
+      <div className="h-24 bg-espresso/5 relative w-full overflow-hidden">
         <div className="absolute inset-0 opacity-30">
           <svg
             width="100%"
@@ -148,8 +148,8 @@ function ShowUpCard({
           </span>
         </div>
         <h3 className="font-semibold text-sm mb-1">Meet at the entrance</h3>
-        <p className="text-xs text-gray-500 mb-3">Today &bull; 12:30 PM</p>
-        <div className="flex items-center justify-between border-t border-gray-100 pt-3">
+        <p className="text-xs text-espresso/50 mb-3">Today &bull; 12:30 PM</p>
+        <div className="flex items-center justify-between border-t border-espresso/10 pt-3">
           <div className="flex items-center gap-2">
             <Image
               src="/avatar-1.png"
@@ -158,9 +158,9 @@ function ShowUpCard({
               height={24}
               className="rounded-full object-cover"
             />
-            <span className="text-xs text-gray-600">You&apos;re going</span>
+            <span className="text-xs text-espresso/60">You&apos;re going</span>
           </div>
-          <div className="relative w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
+          <div className="relative w-8 h-8 rounded-full bg-espresso/[0.03] flex items-center justify-center text-espresso/35">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
             </svg>
@@ -196,9 +196,21 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-cream min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28"
+      className="relative bg-cream min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto w-full flex flex-col gap-12 md:gap-16">
+      {/* Decorative background "365" */}
+      <motion.span
+        className="absolute -right-8 top-1/2 -translate-y-1/2 font-serif text-espresso/[0.04] text-[20rem] md:text-[28rem] lg:text-[36rem] xl:text-[44rem] leading-none select-none pointer-events-none"
+        aria-hidden="true"
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-200px" }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
+        365
+      </motion.span>
+
+      <div className="max-w-7xl mx-auto w-full flex flex-col gap-12 md:gap-16 relative z-10">
         {/* Header */}
         <motion.div
           className="text-center space-y-4"

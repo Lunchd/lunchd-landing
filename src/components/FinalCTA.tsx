@@ -55,11 +55,11 @@ export default function FinalCTA() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 px-6 py-3 rounded-full border-2 border-gray-300 bg-warm-white text-base placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand focus:bg-white transition-all duration-300"
+                  className="flex-1 px-6 py-3 rounded-full border-2 border-card-border bg-warm-white text-base placeholder:text-espresso/40 focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand focus:bg-white transition-all duration-300"
                 />
                 <motion.button
                   type="submit"
-                  className="bg-brand hover:bg-brand-hover text-white font-semibold text-base px-8 py-3 rounded-full transition-all duration-300 cursor-pointer whitespace-nowrap shadow-sm hover:shadow-md inline-flex items-center gap-3 group"
+                  className="bg-brand hover:bg-brand-hover text-white font-semibold text-base px-8 py-3 rounded-full transition-all duration-300 cursor-pointer whitespace-nowrap shadow-sm hover:shadow-brand-glow inline-flex items-center gap-3 group"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >

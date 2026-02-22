@@ -10,7 +10,7 @@
   --color-warm-white: #FFF9F2;
   --color-card-bg: #EAE8E2;
   --color-card-border: #E0DED7;
-  --color-muted: #5A5A5A;
+  --color-muted: rgba(66, 45, 43, 0.55);
 }
 
 @layer base {
@@ -21,7 +21,8 @@
   body {
     margin: 0;
     font-family: var(--font-sans), "Albert Sans", sans-serif;
-    color: #2D2D2D;
+    font-weight: 300;
+    color: var(--color-espresso);
     background: #ffffff;
     overflow-x: hidden;
   }
@@ -38,5 +39,22 @@
 
   .font-sans {
     font-family: var(--font-sans), "Albert Sans", sans-serif;
+  }
+
+  .shadow-brand-glow {
+    box-shadow: 0 4px 20px -4px rgba(232, 73, 8, 0.4);
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

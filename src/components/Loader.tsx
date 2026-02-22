@@ -60,7 +60,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand">
       <div>
-        <Logo className="w-32 md:w-44" />
+        <Logo className="w-[100px] animate-pulse" />
       </div>
     </div>
   );

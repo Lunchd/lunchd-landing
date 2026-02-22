@@ -23,7 +23,7 @@ export default function Footer() {
       transition={{ duration: 0.5 }}
     >
       <div className="w-full aspect-[130/40]">
-        <div className="h-full w-full bg-brand" style={maskStyle} />
+        <div className="h-full w-full bg-espresso/[0.06]" style={maskStyle} />
       </div>
     </motion.footer>
   );

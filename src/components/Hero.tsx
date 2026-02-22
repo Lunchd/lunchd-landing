@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex flex-col justify-between overflow-hidden">
+    <section className="relative h-svh flex flex-col justify-between overflow-hidden">
       <Image
         src="/lunchd-background-exact.png?rev=20260216-2315"
         alt="Friends enjoying lunch together"
@@ -126,19 +126,36 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <motion.h1
+            <h1
               className="font-serif text-white text-7xl sm:text-8xl md:text-8xl lg:text-[100px] leading-[0.95] max-w-4xl"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              style={{ perspective: 600 }}
             >
-              New friends <em className="italic">through</em> lunch
-            </motion.h1>
+              {[
+                { text: "New", italic: false },
+                { text: "friends", italic: false },
+                { text: "through", italic: true },
+                { text: "lunch", italic: false },
+              ].map((word, i) => (
+                <motion.span
+                  key={i}
+                  className={`inline-block mr-[0.25em] ${word.italic ? "italic" : ""}`}
+                  initial={{ opacity: 0, y: 40, rotateX: 40 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.5 + i * 0.12,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  {word.text}
+                </motion.span>
+              ))}
+            </h1>
           </div>
 
           <motion.a
             href="#cta"
-            className="inline-flex items-center justify-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold text-base md:text-lg px-7 md:px-9 py-2 md:py-2.5 rounded-full w-fit transition-all duration-300 shadow-sm hover:shadow-md group"
+            className="inline-flex items-center justify-center gap-3 bg-brand hover:bg-brand-hover text-white font-semibold text-base md:text-lg px-7 md:px-9 py-2 md:py-2.5 rounded-full w-fit transition-all duration-300 shadow-sm hover:shadow-brand-glow group"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >

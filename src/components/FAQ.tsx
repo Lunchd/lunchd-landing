@@ -56,7 +56,7 @@ function FAQItem({
 }) {
   return (
     <motion.div
-      className="faq-item bg-white rounded-2xl overflow-hidden border border-gray-200"
+      className="faq-item bg-white rounded-2xl overflow-hidden border border-card-border transition-all duration-200 hover:border-brand/40 hover:shadow-[0_0_0_1px_rgba(232,73,8,0.15)]"
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -64,9 +64,9 @@ function FAQItem({
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-4 py-2.5 md:px-5 md:py-3 text-center cursor-pointer"
+        className="group w-full flex items-center justify-between px-4 py-2.5 md:px-5 md:py-3 text-center cursor-pointer"
       >
-        <span className="font-medium text-base md:text-[17px] text-espresso flex-1 text-center">
+        <span className="font-medium text-base md:text-[17px] text-espresso flex-1 text-center transition-colors duration-200 group-hover:text-brand">
           {question}
         </span>
         <motion.span
@@ -112,7 +112,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section id="faq" className="bg-cream min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28">
+    <section id="faq" className="bg-warm-white min-h-screen flex items-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-20 md:py-28">
       <div className="max-w-3xl mx-auto w-full flex flex-col gap-10 items-center">
         <motion.h2
           className="w-full max-w-[34rem] mx-auto font-serif text-espresso text-4xl md:text-5xl lg:text-[56px] text-center"
